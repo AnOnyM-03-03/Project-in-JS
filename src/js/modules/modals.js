@@ -30,7 +30,15 @@ export const modals = () => {
             document.body.style.overflow = '';
          }
       });
+      //   скрытие окна при нажатии клавиши Escape
+      window.addEventListener('keydown', (e) => {
+         if (e.keyCode === 27) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+         }
+      });
    }
+
    // функция с временным окном которое показываеться через 60 сек
    function showModal(selector, time) {
       setTimeout(function () {
