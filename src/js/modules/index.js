@@ -1,0 +1,1 @@
+export { showTabs } from './tabs'
