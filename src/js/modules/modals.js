@@ -1,12 +1,12 @@
 export const modals = () => {
    // функция с параметрами для popup
 
-   function bindModals(triggerSelector, modalSelector, closeSelector) {
-      const trigger = document.querySelectorAll(triggerSelector);
+   function bindModals({ triggerSelector, modalSelector, closeSelector }) {
+      const triggers = document.querySelectorAll(triggerSelector);
       const modal = document.querySelector(modalSelector);
       const close = document.querySelector(closeSelector);
       // событие клика и показа окна
-      trigger.forEach((item) => {
+      triggers.forEach((item) => {
          item.addEventListener('click', (e) => {
             if (e.target) {
                // отключение стандартного поведения в данном случае ссылки
@@ -38,11 +38,20 @@ export const modals = () => {
          document.body.style.overflow = 'hidden';
       }, time);
    }
-   bindModals(
-      '.popup_engineer_btn',
-      '.popup_engineer',
-      '.popup_engineer .popup_close'
-   );
-   bindModals('.phone_link', '.popup', '.popup .popup_close');
+
+   const popupArgs = {
+      triggerSelector: '.popup_engineer_btn',
+      modalSelector: '.popup_engineer',
+      closeSelector: '.popup_engineer .popup_close',
+   };
+
+   const phonePopupArgs = {
+      triggerSelector: '.phone_link',
+      modalSelector: '.popup',
+      closeSelector: '.popup .popup_close',
+   };
+
+   bindModals(popupArgs);
+   bindModals(phonePopupArgs);
    showModal('.popup', 60000);
 };
