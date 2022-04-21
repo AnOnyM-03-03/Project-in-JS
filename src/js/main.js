@@ -1,5 +1,5 @@
 import './slider';
-import { showTabs, modals, forms } from './modules';
+import { showTabs, modals, form } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
    const glazingArgs = {
