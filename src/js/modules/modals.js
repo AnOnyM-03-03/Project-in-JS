@@ -32,7 +32,7 @@ export const modals = () => {
       });
       //   скрытие окна при нажатии клавиши Escape
       window.addEventListener('keydown', (e) => {
-         if (e.keyCode === 27) {
+         if (e.key === 'Escape') {
             modal.style.display = 'none';
             document.body.style.overflow = '';
          }
