@@ -15,7 +15,16 @@ window.addEventListener('DOMContentLoaded', () => {
       activeClass: 'after_click',
    };
 
+   const balconsArgs = {
+      headerSelector: '.balcon_icons',
+      tabSelector: '.balcon_icons_img',
+      contentSelector: '.big_img >img',
+      activeClass: 'do_image_more',
+      display: 'inline-block',
+   };
+
    showTabs(glazingArgs);
    showTabs(sliderArgs);
+   showTabs(balconsArgs);
    modals();
 });
