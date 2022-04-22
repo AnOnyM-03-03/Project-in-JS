@@ -2,9 +2,9 @@ export const showTabs = ({
    headerSelector,
    tabSelector,
    contentSelector,
-   activeClass
-}
-) => {
+   activeClass,
+   display = 'block',
+}) => {
    const header = document.querySelector(headerSelector),
       tabs = document.querySelectorAll(tabSelector),
       contents = document.querySelectorAll(contentSelector);
@@ -18,7 +18,7 @@ export const showTabs = ({
    //   перебор псевдомассива с контентом
    function showTabContent(i = 0) {
       //    показ контента активного таба
-      contents[i].style.display = 'block';
+      contents[i].style.display = display;
       //   contents[i].style.display = 'block';
       //   показ активной подложки
       tabs[i].classList.add(activeClass);
