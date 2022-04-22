@@ -1,7 +1,7 @@
 export const form = () => {
    const forms = document.querySelectorAll('form'),
       inputs = document.querySelectorAll('input');
-   const phoneInputs = document.querySelector('input[name="user_phone"]');
+   const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
    // фнукция для каждого инпута
    phoneInputs.forEach((phoneInput) => {
       //    событие инпута
