@@ -1,7 +1,9 @@
 import './slider';
-import { showTabs, modals } from './modules';
+import { showTabs, modals, changeModalState } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
+   let modalState = {};
+
    const glazingArgs = {
       headerSelector: '.glazing_slider',
       tabSelector: '.glazing_block',
@@ -27,4 +29,6 @@ window.addEventListener('DOMContentLoaded', () => {
    showTabs(sliderArgs);
    showTabs(balconsArgs);
    modals();
+//    а в свою очередь параметр state записывается в созданный объект modalState
+   changeModalState(modalState);
 });
