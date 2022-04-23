@@ -10,7 +10,14 @@ export const modals = () => {
       const triggers = document.querySelectorAll(triggerSelector);
       const modal = document.querySelector(modalSelector);
       const close = document.querySelector(closeSelector);
+
       const windows = document.querySelectorAll('[data-modal]');
+      function modalNone() {
+         modal.style.display = 'none';
+      }
+      function styleOverflow() {
+         document.body.style.overflow = '';
+      }
       // событие клика и показа окна
       triggers.forEach((item) => {
          item.addEventListener('click', (e) => {
@@ -45,17 +52,25 @@ export const modals = () => {
             });
             modal.style.display = 'none';
             document.body.style.overflow = '';
+         modalNone();
+         styleOverflow();
+      });
+      // событие для окна
+      modal.addEventListener('click', (e) => {
+         if (e.target === modal) {
+            modalNone();
+            styleOverflow();
          }
       });
       //   скрытие окна при нажатии клавиши Escape
       window.addEventListener('keydown', (e) => {
-         if (e.keyCode === 27) {
+ master
+         if (e.key === 'Escape') {
             modal.style.display = 'none';
             document.body.style.overflow = '';
          }
       });
    }
-
    // функция с временным окном которое показываеться через 60 сек
    function showModal(selector, time) {
       setTimeout(function () {
@@ -63,7 +78,7 @@ export const modals = () => {
          document.body.style.overflow = 'hidden';
       }, time);
    }
-
+   
    const popupArgs = {
       triggerSelector: '.popup_engineer_btn',
       modalSelector: '.popup_engineer',
