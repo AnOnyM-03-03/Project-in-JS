@@ -38,7 +38,8 @@ export const modals = () => {
          }
       });
       //   скрытие окна при нажатии клавиши Escape
-      document.addEventListener('keydown', (e) => {
+      window.addEventListener('keydown', (e) => {
+ master
          if (e.key === 'Escape') {
             modal.style.display = 'none';
             document.body.style.overflow = '';
