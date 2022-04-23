@@ -1,5 +1,5 @@
 import './slider';
-import { showTabs, modals, changeModalState } from './modules';
+import { showTabs, modals, form, changeModalState } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
    let modalState = {};
@@ -29,6 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
    showTabs(sliderArgs);
    showTabs(balconsArgs);
    modals();
-//    а в свою очередь параметр state записывается в созданный объект modalState
+   //    а в свою очередь параметр state записывается в созданный объект modalState
    changeModalState(modalState);
+   form();
 });

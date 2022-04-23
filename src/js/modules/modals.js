@@ -11,6 +11,12 @@ export const modals = () => {
       const modal = document.querySelector(modalSelector);
       const close = document.querySelector(closeSelector);
       const windows = document.querySelectorAll('[data-modal]');
+
+      function closeModal() {
+         modal.style.display = 'none';
+         document.body.style.overflow = '';
+      }
+
       // событие клика и показа окна
       triggers.forEach((item) => {
          item.addEventListener('click', (e) => {
@@ -34,8 +40,7 @@ export const modals = () => {
             window.style.display = 'none';
          });
 
-         modal.style.display = 'none';
-         document.body.style.overflow = '';
+         closeModal();
       });
       // событие для окна
       modal.addEventListener('click', (e) => {
@@ -43,13 +48,14 @@ export const modals = () => {
             windows.forEach((window) => {
                window.style.display = 'none';
             });
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
+
+            closeModal();
          }
       });
+
       //   скрытие окна при нажатии клавиши Escape
       window.addEventListener('keydown', (e) => {
-         if (e.keyCode === 27) {
+         if (e.key === 'Escape') {
             modal.style.display = 'none';
             document.body.style.overflow = '';
          }
