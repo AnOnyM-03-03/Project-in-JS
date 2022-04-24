@@ -2,6 +2,7 @@ import './slider';
 import { showTabs, modals, form, changeModalState } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
+   // переменная в которой хранятся объекты отправки на сервер
    let modalState = {};
 
    const glazingArgs = {
@@ -31,5 +32,5 @@ window.addEventListener('DOMContentLoaded', () => {
    modals();
    //    а в свою очередь параметр state записывается в созданный объект modalState
    changeModalState(modalState);
-   form();
+   form(modalState);
 });

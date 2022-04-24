@@ -1,4 +1,5 @@
-export const form = () => {
+import { checkNumInputs } from './checkNumInputs';
+export const form = (state) => {
    const forms = document.querySelectorAll('form'),
       inputs = document.querySelectorAll('input');
    const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
@@ -39,8 +40,14 @@ export const form = () => {
          const statusmessage = document.createElement('div');
          statusmessage.classList.add('status');
          form.appendChild(statusmessage);
-         // собираем данный из введеной формы
+         // собираем данные из введеной формы
          const formData = new FormData(form);
+        // проверяем действительно ли это последнее окно и если это так, то мыперебираем и  добавляем к обЪекту выбранные образцы и отправляем на сервер
+         if (form.getAttribute('data-calc') === 'end') {
+            for (let key in state) {
+               formData.append(key, state[key]);
+            }
+         }
          // отправляем запрос на сервер по адресу с данными из formData
          postData('assets/server.php', formData)
             .then((res) => {
