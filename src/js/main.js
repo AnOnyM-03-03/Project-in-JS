@@ -1,9 +1,10 @@
 import './slider';
-import { showTabs, modals, form, changeModalState } from './modules';
+import { showTabs, modals, form, changeModalState, timer } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
    // переменная в которой хранятся объекты отправки на сервер
    let modalState = {};
+   let deadLine = '2022-06-29';
 
    const glazingArgs = {
       headerSelector: '.glazing_slider',
@@ -33,4 +34,5 @@ window.addEventListener('DOMContentLoaded', () => {
    //    а в свою очередь параметр state записывается в созданный объект modalState
    changeModalState(modalState);
    form(modalState);
+   timer('.container1', deadLine);
 });
