@@ -1,5 +1,5 @@
 import './slider';
-import { showTabs, modals, form, changeModalState } from './modules';
+import { showTabs, modals, form, changeModalState, images } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
    // переменная в которой хранятся объекты отправки на сервер
@@ -33,4 +33,5 @@ window.addEventListener('DOMContentLoaded', () => {
    //    а в свою очередь параметр state записывается в созданный объект modalState
    changeModalState(modalState);
    form(modalState);
+   images();
 });
