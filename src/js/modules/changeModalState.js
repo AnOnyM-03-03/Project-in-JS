@@ -20,12 +20,14 @@ export const changeModalState = (state) => {
                   state[prop] = i;
                   break;
                case 'INPUT':
+                   
                   if (elem.getAttribute('type') === 'checkbox') {
                      i === 0
                         ? (state[prop] = 'Холодное')
                         : (state[prop] = 'Теплое');
                      elems.forEach((box, j) => {
                         box.checked = false;
+
                         if (i == j) {
                            box.checked = true;
                         }
@@ -38,7 +40,6 @@ export const changeModalState = (state) => {
                   state[prop] = elem.value;
                   break;
             }
-            console.log(state);
          });
       });
    }

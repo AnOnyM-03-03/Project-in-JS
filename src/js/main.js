@@ -4,6 +4,7 @@ import { showTabs, modals, form, changeModalState, timer } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
    // переменная в которой хранятся объекты отправки на сервер
+   const modalState = {};
    let modalState = {};
    let deadLine = '2022-06-29';
 

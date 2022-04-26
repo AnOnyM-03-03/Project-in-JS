@@ -1,4 +1,5 @@
 import { checkNumInputs } from './checkNumInputs';
+
 export const form = (state) => {
    const forms = document.querySelectorAll('form'),
       inputs = document.querySelectorAll('input');
@@ -29,6 +30,7 @@ export const form = (state) => {
          method: 'POST',
          body: data,
       });
+      
       return await res.text();
    };
    //    фунция для каждой формы
