@@ -1,4 +1,5 @@
 import './slider';
+import { showTabs, modals, form, changeModalState, images } from './modules';
 import { showTabs, modals, form, changeModalState, timer } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -34,5 +35,6 @@ window.addEventListener('DOMContentLoaded', () => {
    //    а в свою очередь параметр state записывается в созданный объект modalState
    changeModalState(modalState);
    form(modalState);
+   images();
    timer('.container1', deadLine);
 });
