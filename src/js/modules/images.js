@@ -4,8 +4,8 @@ export const images = () => {
       bigImage = document.createElement('img');
 
    imgPopup.classList.add('popup');
-   workSection.appendChild(imgPopup);
-   imgPopup.appendChild(bigImage);
+   workSection.append(imgPopup);
+   imgPopup.append(bigImage);
 
    imgPopup.style.justifyContent = 'center';
    imgPopup.style.alignItems = 'center';
@@ -23,6 +23,7 @@ export const images = () => {
    workSection.addEventListener('click', (e) => {
       e.preventDefault();
       const target = e.target;
+
       if (target && target.classList.contains('preview')) {
          popupDisplayFlex();
          const path = target.parentNode.getAttribute('href');
