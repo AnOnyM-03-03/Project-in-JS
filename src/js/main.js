@@ -3,7 +3,7 @@ import { showTabs, modals, form, changeModalState } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
    // переменная в которой хранятся объекты отправки на сервер
-   let modalState = {};
+   const modalState = {};
 
    const glazingArgs = {
       headerSelector: '.glazing_slider',
