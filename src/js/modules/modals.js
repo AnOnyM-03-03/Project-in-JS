@@ -21,6 +21,7 @@ export const modals = () => {
       // событие клика и показа окна
       triggers.forEach((item) => {
          item.addEventListener('click', (e) => {
+             
             if (e.target) {
                // отключение стандартного поведения в данном случае ссылки
                e.preventDefault();
@@ -47,6 +48,7 @@ export const modals = () => {
       });
       // событие для окна
       modal.addEventListener('click', (e) => {
+
          if (e.target === modal && closeClickOverlay) {
             windows.forEach((window) => {
                window.style.display = 'none';
@@ -60,14 +62,16 @@ export const modals = () => {
       //   скрытие окна при нажатии клавиши Escape
       window.addEventListener('keydown', (e) => {
          if (e.key === 'Escape') {
-            closeModal();
             document.body.style.marginRight = `0px`;
+
+            closeModal();
          }
       });
    }
 
    // функция с временным окном которое показываеться через 60 сек
    function showModal(selector, time) {
+
       setTimeout(function () {
          document.querySelector(selector).style.display = 'block';
          document.body.style.overflow = 'hidden';
@@ -83,6 +87,7 @@ export const modals = () => {
       document.body.appendChild(div);
       const scrollWidth = div.offsetWidth - div.clientWidth;
       div.remove();
+
       return scrollWidth;
    }
 
