@@ -8,17 +8,18 @@ export const timer = (id, deadline) => {
    };
    // функция которая получает кол-во времени и выдавать сколько осталось до конца
    const getTimeRemaining = (endTime) => {
-      const t = Date.parse(endTime) - Date.parse(new Date()),
-         seconds = Math.floor((t / 1000) % 60),
-         minutes = Math.floor((t / 1000 / 60) % 60),
-         hours = Math.floor((t / (1000 * 60 * 60)) % 24),
-         days = Math.floor(t / (1000 * 60 * 60 * 24));
+      const total = Date.parse(endTime) - Date.parse(new Date()),
+         seconds = Math.floor((total / 1000) % 60),
+         minutes = Math.floor((total / 1000 / 60) % 60),
+         hours = Math.floor((total / (1000 * 60 * 60)) % 24),
+         days = Math.floor(total / (1000 * 60 * 60 * 24));
+
       return {
-         total: t,
-         days: days,
-         hours: hours,
-         minutes: minutes,
-         seconds: seconds,
+         total,
+         days,
+         hours,
+         minutes,
+         seconds,
       };
    };
 
@@ -38,6 +39,7 @@ export const timer = (id, deadline) => {
          hours.textContent = addZero(t.hours);
          minutes.textContent = addZero(t.minutes);
          seconds.textContent = addZero(t.seconds);
+
          if (t.total <= 0) {
             days.textContent = '00';
             hours.textContent = '00';
@@ -48,5 +50,6 @@ export const timer = (id, deadline) => {
          }
       }
    };
+
    setClock(id, deadline);
 };
