@@ -1,6 +1,5 @@
 import './slider';
-import { showTabs, modals, form, changeModalState, images } from './modules';
-import { showTabs, modals, form, changeModalState, timer } from './modules';
+import { showTabs, modals, form, changeModalState, images, timer } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
    // переменная в которой хранятся объекты отправки на сервер
