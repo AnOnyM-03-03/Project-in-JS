@@ -21,10 +21,18 @@ export const modals = () => {
       // событие клика и показа окна
       triggers.forEach((item) => {
          item.addEventListener('click', (e) => {
-             
             if (e.target) {
                // отключение стандартного поведения в данном случае ссылки
                e.preventDefault();
+            }
+            if (
+               document.querySelector(
+                  `${modalSelector} input:not([type='radio'])`
+               )
+            ) {
+               document
+                  .querySelector(`${modalSelector} input:not([type='radio'])`)
+                  .focus();
             }
 
             windows.forEach((window) => {
@@ -48,7 +56,6 @@ export const modals = () => {
       });
       // событие для окна
       modal.addEventListener('click', (e) => {
-
          if (e.target === modal && closeClickOverlay) {
             windows.forEach((window) => {
                window.style.display = 'none';
@@ -71,7 +78,6 @@ export const modals = () => {
 
    // функция с временным окном которое показываеться через 60 сек
    function showModal(selector, time) {
-
       setTimeout(function () {
          document.querySelector(selector).style.display = 'block';
          document.body.style.overflow = 'hidden';
