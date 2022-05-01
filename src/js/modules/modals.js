@@ -11,6 +11,7 @@ export const modals = () => {
       const modal = document.querySelector(modalSelector);
       const close = document.querySelector(closeSelector);
       const windows = document.querySelectorAll('[data-modal]');
+      const scroll = calcScroll();
 
       function closeModal() {
          modal.style.display = 'none';
@@ -24,6 +25,15 @@ export const modals = () => {
                // отключение стандартного поведения в данном случае ссылки
                e.preventDefault();
             }
+            if (
+               document.querySelector(
+                  `${modalSelector} input:not([type='radio'])`
+               )
+            ) {
+               document
+                  .querySelector(`${modalSelector} input:not([type='radio'])`)
+                  .focus();
+            }
 
             windows.forEach((window) => {
                window.style.display = 'none';
@@ -32,6 +42,7 @@ export const modals = () => {
             modal.style.display = 'block';
             // ставим для body запрет на прокрутку
             document.body.style.overflow = 'hidden';
+            document.body.style.marginRight = `${scroll}px`;
          });
       });
       // событие нажатия на крестик
@@ -41,6 +52,7 @@ export const modals = () => {
          });
 
          closeModal();
+         document.body.style.marginRight = `0px`;
       });
       // событие для окна
       modal.addEventListener('click', (e) => {
@@ -50,14 +62,16 @@ export const modals = () => {
             });
 
             closeModal();
+            document.body.style.marginRight = `0px`;
          }
       });
 
       //   скрытие окна при нажатии клавиши Escape
       window.addEventListener('keydown', (e) => {
          if (e.key === 'Escape') {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
+            document.body.style.marginRight = `0px`;
+
+            closeModal();
          }
       });
    }
@@ -68,6 +82,19 @@ export const modals = () => {
          document.querySelector(selector).style.display = 'block';
          document.body.style.overflow = 'hidden';
       }, time);
+   }
+
+   function calcScroll() {
+      const div = document.createElement('div');
+      div.style.width = '50px';
+      div.style.height = '50px';
+      div.style.overflowY = 'scroll';
+      div.style.visibility = 'hidden';
+      document.body.appendChild(div);
+      const scrollWidth = div.offsetWidth - div.clientWidth;
+      div.remove();
+
+      return scrollWidth;
    }
 
    const popupArgs = {
