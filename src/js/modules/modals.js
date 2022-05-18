@@ -81,6 +81,8 @@ export const modals = () => {
       setTimeout(function () {
          document.querySelector(selector).style.display = 'block';
          document.body.style.overflow = 'hidden';
+         const scroll = calcScroll();
+         document.body.style.marginRight = `${scroll}px`;
       }, time);
    }
 
@@ -133,5 +135,5 @@ export const modals = () => {
    bindModals(calcCost);
    bindModals(calcProfile);
    bindModals(calcEnd);
-   showModal('.popup', 60000);
+   showModal('.popup[data-modal]', 2000);
 };
