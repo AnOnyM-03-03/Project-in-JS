@@ -135,5 +135,5 @@ export const modals = () => {
    bindModals(calcCost);
    bindModals(calcProfile);
    bindModals(calcEnd);
-   showModal('.popup[data-modal]', 2000);
+   showModal('.popup[data-modal]', 60000);
 };
